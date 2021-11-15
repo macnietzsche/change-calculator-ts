@@ -1,17 +1,14 @@
-import { cartesian } from "./services/array-methods";
-import { processChange } from "./services/change-calculator";
+import { hasEnoughChange } from "./services/change-calculator";
+import { IInputPaymentsQueue } from "./common/types";
+import fs from "fs";
 
-const result = cartesian(
-  ...[
-    [1, 2],
-    [3, 4],
-  ]
+const rawData = fs.readFileSync("user-data/input.json");
+const inputPaymentsQueue: IInputPaymentsQueue = JSON.parse(rawData.toString());
+
+const response = hasEnoughChange(inputPaymentsQueue.COLA_DE_PAGO);
+
+console.log("------------------------------------------------------------");
+console.log(
+  `Vania ${response ? "SI" : "NO"} puede vender boletos y dar cambio.`
 );
-
-console.log("Hello Typescript", result);
-
-const currentCash = { 25: 0, 50: 0, 100: 0 };
-const change = 0;
-
-const test = processChange(currentCash, change);
-console.log({ test });
+console.log("------------------------------------------------------------");
