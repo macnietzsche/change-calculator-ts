@@ -1,5 +1,5 @@
 import { ICash } from "common/types";
-import { cartesian } from "./array-methods";
+import { cartesianProduct } from "./array-methods";
 
 export const calculateCashAmount = (currentCash: ICash | null): number => {
   if (!currentCash) return -1;
@@ -23,7 +23,7 @@ export const processChange = (
     return [...Array(item + 1).keys()];
   });
 
-  const posibilities = cartesian(...iteratedNumberOfBills);
+  const posibilities = cartesianProduct(...iteratedNumberOfBills);
   const posibiitiesWithKeys = posibilities.map((item) => {
     return billDenominations.reduce((acc: ICash, key, index) => {
       acc[key] = item[index];

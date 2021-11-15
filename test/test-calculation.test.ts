@@ -1,11 +1,11 @@
-import { cartesian } from "../src/services/array-methods";
+import { cartesianProduct } from "../src/services/array-methods";
 import { ICash } from "../src/common/types";
 import {
   calculateCashAmount,
   processChange,
 } from "../src/services/change-calculator";
 
-describe("Cartesian product", () => {
+describe("CartesianProduct product", () => {
   it("Generates correct result. Arrays with same length", () => {
     const testInput = [
       [1, 2],
@@ -19,7 +19,7 @@ describe("Cartesian product", () => {
       [2, 4],
     ];
 
-    const result = cartesian(...testInput);
+    const result = cartesianProduct(...testInput);
     expect(result).toStrictEqual(expectedResult);
   });
 
@@ -38,7 +38,7 @@ describe("Cartesian product", () => {
       [2, 5],
     ];
 
-    const result = cartesian(...testInput);
+    const result = cartesianProduct(...testInput);
     expect(result).toStrictEqual(expectedResult);
   });
 });

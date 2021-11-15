@@ -1,4 +1,4 @@
-export const cartesian = (...allEntries: number[][]): number[][] => {
+export const cartesianProduct = (...allEntries: number[][]): number[][] => {
   return allEntries.reduce<number[][]>(
     (results, entries) =>
       results
