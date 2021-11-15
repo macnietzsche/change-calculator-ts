@@ -16,7 +16,7 @@ The cashier is able to give back change if his cash register:
 **Notice:** As for today, it is assumed that cashier's initial amount of money in register is 0, and customers pay only with 25, 20 or 100 currency denominations.
 
 ## Requirements
-In order to run this application ```NodeJS 16+``` and ```yarn``` are required. On the fisrt run, dependencies must be installed using:
+In order to run this application ```NodeJS 16+``` is required. It is recommended to use ```Yarn Package Manager``` instead of traditional ```NPM``` On the fisrt run, dependencies must be installed using:
 ```console
 $ yarn install
 ```
@@ -46,3 +46,9 @@ $ yarn start
 ```console
 $ yarn tests
 ```
+## Build
+Transpile de project from TypeScript to JavaScript
+```console
+$ yarn build
+```
+
