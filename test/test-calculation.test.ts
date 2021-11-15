@@ -3,6 +3,7 @@ import { ICash } from "../src/common/types";
 import {
   calculateCashAmount,
   processChange,
+  hasEnoughChange,
 } from "../src/services/change-calculator";
 
 describe("CartesianProduct product", () => {
@@ -112,5 +113,26 @@ describe("Process change", () => {
     const processedChange = processChange(currentCash, change);
     const result = calculateCashAmount(processedChange);
     expect(result).toBe(expectedResult);
+  });
+});
+
+describe("Calculate if there is enough change", () => {
+  it("Has enough change", () => {
+    const paymentsReceived = [25, 25, 50];
+    const expectedResponse = true;
+    const response = hasEnoughChange(paymentsReceived);
+    expect(response).toBe(expectedResponse);
+  });
+  it("Does not have enough change", () => {
+    const paymentsReceived = [25, 100];
+    const expectedResponse = false;
+    const response = hasEnoughChange(paymentsReceived);
+    expect(response).toBe(expectedResponse);
+  });
+  it("Has enough change, but does not have denominations to give back the exact amount", () => {
+    const paymentsReceived = [25, 25, 50, 50, 100];
+    const expectedResponse = false;
+    const response = hasEnoughChange(paymentsReceived);
+    expect(response).toBe(expectedResponse);
   });
 });

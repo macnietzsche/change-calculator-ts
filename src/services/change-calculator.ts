@@ -44,3 +44,7 @@ export const processChange = (
 
   return null;
 };
+
+export const hasEnoughChange = (paymentsReceived: number[]): boolean => {
+  return false;
+};
