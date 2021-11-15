@@ -44,7 +44,7 @@ $ yarn start
 ## Testing
 ### Run all tests
 ```console
-$ yarn tests
+$ yarn test
 ```
 ## Build
 Transpile de project from TypeScript to JavaScript
