@@ -1,6 +1,9 @@
-export const cartesian = (...a: any[]) =>
-  a.reduce((a, b) => {
-    return a.flatMap((d: any) => {
-      return b.map((e: any) => [d, e].flat());
-    });
-  });
+export const cartesian = (...allEntries: number[][]): number[][] => {
+  return allEntries.reduce<number[][]>(
+    (results, entries) =>
+      results
+        .map((result) => entries.map((entry) => [...result, entry]))
+        .reduce((subResults, result) => [...subResults, ...result], []),
+    [[]]
+  );
+};
